@@ -8,12 +8,13 @@ const GENERATE_POSTS = createActionName('GENERATE_POSTS');
 
 // action creators
 export const generatePosts = payload => ({ type: GENERATE_POSTS, payload,});
+
 const postsReducer = (statePart = [], action) => {
-switch (action.type) {
-    case GENERATE_POSTS:
-        return [...statePart, ...action.payload];
-    default:
-    return statePart;
+    switch (action.type) {
+        case GENERATE_POSTS:
+            return [...statePart, ...action.payload];
+            default:
+                return statePart;
 };
 };
 
