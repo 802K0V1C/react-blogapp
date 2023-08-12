@@ -4,6 +4,8 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useForm } from 'react-hook-form';
 import styles from './PostForm.scss'
+import {getCategories} from '../../redux/categoriesRedux';
+import {useSelector} from 'react-redux';
 
 
 const PostForm = ({ action, actionText, ...props }) => { 
@@ -11,6 +13,10 @@ const PostForm = ({ action, actionText, ...props }) => {
     const [publishedDate, setPublishedDate] = useState(props.publishedDate || '');
     const [author, setAuthor] = useState(props.author || '');
     const [content, setContent] = useState(props.content || '');
+
+    const Allcategories = useSelector(getCategories)
+
+    const [category, setCategory] = useState(props.category || '');
 
 
     const { register, handleSubmit: validate, formState: { errors }, setValue } = useForm();
@@ -25,9 +31,9 @@ const PostForm = ({ action, actionText, ...props }) => {
     };
 
 
-const handleSubmit = (e) => {
-    action({ title, author, publishedDate, content});
-};
+    const handleSubmit = () => {
+        action({ title, author, publishedDate, content, category});
+    };
 
 return (
     <div className="d-flex justify-content-center mt-5" >
@@ -46,6 +52,15 @@ return (
                 <Form.Control {...register("author", { required: true, minLength: 3})} type="text" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Enter name" style={{ width: '70%' }} />
             {errors.author && <small className="d-block form-text text-danger">This field is required with at least 3 characters</small>}
                 </Form.Group>
+                
+                <Form.Label className="pt-3"><strong>Category</strong></Form.Label>
+            <Form.Select aria-label="select" value={category} {...register("category", { required: true})}  onChange={(e) => setCategory(e.target.value)} style={{ width: '70%' }}>
+            {Allcategories.map((category) => {
+                return (
+                <option key={category} value={category}>{category}</option>
+                );
+            })}
+            </Form.Select>
                 
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label><strong>Main Content</strong></Form.Label>
