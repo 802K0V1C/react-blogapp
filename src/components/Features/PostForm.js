@@ -35,15 +35,15 @@ return (
             <Form onSubmit={validate(handleSubmit)}>
                 <Form.Group className="mb-3" controlId="postInformations">
                     
-                    <Form.Label><strong>Title</strong></Form.Label>
-                    <Form.Control  {...register("title", { required: true, minLength: 3})} type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter title" style={{ width: '70%' }} />
+                <Form.Label><strong>Title</strong></Form.Label>
+                <Form.Control  {...register("title", { required: true, minLength: 3})} type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter title" style={{ width: '70%' }} />
             {errors.title && <small className="d-block form-text text-danger">This field is required with at least 3 characters</small>}
 
-                    <Form.Label className="pt-3"><strong>Published</strong></Form.Label>
-                    <Form.Control  {...register("date", { required: true, minLength: 3})} type="date" value={publishedDate} onChange={(e) => setPublishedDate(e.target.value)} placeholder="Enter date" style={{ width: '70%' }} />
+                <Form.Label className="pt-3"><strong>Published</strong></Form.Label>
+                <Form.Control  {...register("date", { required: true, minLength: 3})} type="date" value={publishedDate} onChange={(e) => setPublishedDate(e.target.value)} placeholder="Enter date" style={{ width: '70%' }} />
                     
-                    <Form.Label className="pt-3"><strong>Author</strong></Form.Label>
-                    <Form.Control {...register("author", { required: true, minLength: 3})} type="text" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Enter name" style={{ width: '70%' }} />
+                <Form.Label className="pt-3"><strong>Author</strong></Form.Label>
+                <Form.Control {...register("author", { required: true, minLength: 3})} type="text" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Enter name" style={{ width: '70%' }} />
             {errors.author && <small className="d-block form-text text-danger">This field is required with at least 3 characters</small>}
                 </Form.Group>
                 
