@@ -28,5 +28,6 @@ const initialState = {
         category: 'Movies',
         },
     ],
+    categories: ['Sport','News', 'Movies'],
     };
 export default initialState;

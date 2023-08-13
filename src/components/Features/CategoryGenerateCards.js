@@ -16,7 +16,7 @@ return (
             <Card.Text className='pt-2 mb-0'><strong>Author:</strong> {post.author}</Card.Text>
             <Card.Text><strong>Category:</strong>{post.category}</Card.Text>
             <Card.Text><strong>Description:</strong> <span dangerouslySetInnerHTML={{ __html: post.content }}></span></Card.Text>
-            <Button variant="warning" href={`/post/${post.id}`}>Read More</Button>
+            <Button variant="primary" href={`/post/${post.id}`}>Read More</Button>
             </Card.Body>
         </Card>
         </Col>
